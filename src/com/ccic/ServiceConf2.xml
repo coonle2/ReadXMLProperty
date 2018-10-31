@@ -1,0 +1,67 @@
+<ServiceConf>
+    <common>
+        <alertURL>//10.1</alertURL>
+    </common>
+ 
+
+<service name="ApproveStrategyService">
+	<providers>
+	  <provider>  </provider>
+  </providers>
+  <consumers> <consumer>test</consumer>
+	  <consumer>xb</consumer>
+  </consumers>
+	<routes>123
+		<endpoint name="default" provider="">1</endpoint>
+		<endpoint name="default" provider="ilog">http://10.1.12.92:7003/ApproveStrategy/cxf/ApproveStrategyService22</endpoint>
+	</routes>
+    <validation>2</validation>
+</service>
+ 
+<service name="CalculateApproveAmountService">
+	<providers>
+	  <provider></provider>
+  </providers>
+  <consumers> <consumer>test</consumer>
+	  <consumer>xb</consumer>
+  </consumers>
+	<routes>
+		<endpoint name="default" provider="ilog" >http://10.1.12.92:7003/creditInsurance/cxf/CalculateApproveAmountService</endpoint>
+	</routes>
+ <validation>2</validation>
+</service>
+
+<service name="ImageArriveNotifyService">
+	<providers>
+		<provider>ecm</provider>
+	</providers>
+	<consumers> <consumer>test</consumer>
+		<consumer>ecm</consumer>
+	</consumers>
+	<routes>
+		<endpoint name="default" provider="">ImageArriveNotifyServiceURL</endpoint>
+		<endpoint name="FK" provider="FK">http://10.1.13.53:15006/ImageArriveNotifyService</endpoint>
+		<endpoint name="UW_D" provider="UW_D">http://10.1.13.21:25035/undwrtbpm/services/ImageArriveNotify</endpoint>
+		<endpoint name="CL_D" provider="CL_D">http://10.1.13.33:25017/claim/services/imageArriveNotify</endpoint>
+		<endpoint name="CL" provider="CL">http://10.1.13.33:25017/claim/services/imageArriveNotify</endpoint>
+	</routes>
+ <validation>2</validation>
+</service>
+
+
+<service name="ReceiveSmsService">
+        <providers>
+            <provider>card</provider>
+            <provider>ITSM</provider> 
+        </providers>
+        <consumers> <consumer>test</consumer>
+            <consumer>sms</consumer>
+        </consumers>
+      <routes>
+        <endpoint name="default" provider=""></endpoint>
+        <endpoint name="card" provider="card">http://10.1.13.37:25011/ddccallweb/services/ReceiveSmsEndpoint</endpoint>
+        <endpoint name="itsm" provider="itsm">http://10.1.13.163:8080/cxf/services/ReceiveSms</endpoint>
+      </routes>
+     <validation>2</validation>
+    </service>
+</ServiceConf>
